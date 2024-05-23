@@ -1,0 +1,21 @@
+{
+  "name": "usearch-jest-app",
+  "version": "0.0.5",
+  "scripts": {
+    "build": "pnpm build:cjs & pnpm build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json & cp package-cjs.json dist/cjs/package.json",
+    "build:esm": "tsc -p tsconfig.esm.json & cp package-esm.json dist/esm/package.json"
+  },
+  "main": "./dist/cjs/usearch.js",
+  "module": "./dist/esm/usearch.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/usearch.js",
+      "require": "./dist/cjs/usearch.js"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "typescript": "^5.4.5"
+  }
+}
